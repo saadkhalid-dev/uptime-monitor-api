@@ -1,11 +1,11 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic import BaseModel, HttpUrl
 
 app = FastAPI(title = "Uptime Monitor API")
 
 class MonitorCreate(BaseModel):
     name: str
-    url: str
+    url: HttpUrl
 
 @app.get("/health")
 def health_check():
